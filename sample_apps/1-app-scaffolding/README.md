@@ -1,64 +1,27 @@
-# App Scaffolding
+# Project1
 
-This sample provides a boilerplate for standing up an Angular app that implements the ArcGIS API for JavaScript.  We leverage the Angular CLI and the [esri-loader](https://github.com/Esri/esri-loader).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
-## Overview
+## Development server
 
-- Quick start:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-  ```bash
-  # only once on your computer
-  npm install -g @angular/cli
-  ```
+## Code scaffolding
 
-  ```bash
-  # go to the first sample app
-  cd ./sample_apps/1-app-scaffolding
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-  # install dependencies
-  npm install
+## Build
 
-  # serve the app for development
-  ng serve
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-  # or, if you want to build for production
-  ng build --base-href ./
-  ```
+## Running unit tests
 
-- Building blocks:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-  - Angular CLI
+## Running end-to-end tests
 
-  - "esri-loader"
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-  - custom demo files:
+## Further help
 
-    - `esri-map.component.ts`
-
-    - `esri-map.component.html`
-
-    - `esri-map.component.css`
-
-## Background info on this sample code
-
-This sample app was created following the instructions here: https://github.com/Esri/angular-cli-esri-map.
-
-Please spend some time getting comfortable with those instructions.
-
-### TL;DR*
-
-1. `ng new YOUR-APP`
-
-2. `cd YOUR-APP`
-
-3. `npm install --save esri-loader`
-
-4. `ng generate component esri-map`
-
-5. Copy and paste mapping component files from https://github.com/Esri/angular-cli-esri-map
-
-6. Add `<app-esri-map></app-esri-map>` to `app.component.html` file
-
-7. `ng serve` or `ng build --base-href ./`
-
-*_"too long; didn't read"_
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
