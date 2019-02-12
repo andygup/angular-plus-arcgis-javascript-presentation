@@ -1,27 +1,46 @@
-# Project1
+# App Scaffolding
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+This sample provides a boilerplate for standing up an Angular app that implements the ArcGIS API for JavaScript.  We leverage the Angular CLI and the [esri-loader](https://github.com/Esri/esri-loader).
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Quick start:
 
-## Code scaffolding
+  ```bash
+  # only once on your computer
+  npm install -g @angular/cli
+  ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  ```bash
+  # go to the first sample app
+  cd ./sample_apps/1-app-scaffolding
 
-## Build
+  # install dependencies
+  npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  # serve the app for development
+  ng serve
 
-## Running unit tests
+  # or, if you want to build for production
+  ng build --base-href ./
+  ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Building blocks:
 
-## Running end-to-end tests
+  - Angular CLI
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  - "esri-loader"
 
-## Further help
+  - custom demo files:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    - `esri-map.component.ts`
+
+    - `esri-map.component.html`
+
+    - `esri-map.component.css`
+
+## Background info on this sample code
+
+This sample app was created following the instructions here: https://github.com/Esri/angular-cli-esri-map.
+
+Please spend some time getting comfortable with those instructions.
