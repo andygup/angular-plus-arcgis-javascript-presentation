@@ -36,7 +36,8 @@ export class DashboardComponent implements OnInit {
   feedback;
   selectorDisabled = false;
 
-  selectedWonder = (ev) => {
+  async selectedWonder(ev): Promise<void> {
+    // or selectedWonder = async (ev) => {
     // verify that a wonder is selected
     if (ev.target.value === '') {
       return;
@@ -46,20 +47,18 @@ export class DashboardComponent implements OnInit {
     this.disablePanel(this.sevenWonders[ev.target.value].name);
 
     // call the panMap method of the child map component
-    this.map.panMap(this.sevenWonders[ev.target.value].coordinates)
-    .then(() => {
+    try {
+      await this.map.panMap(this.sevenWonders[ev.target.value].coordinates);
       this.enablePanel();
-    })
-    .catch((err) => {
+    } catch (err) {
       console.log(err);
-    });
-
+    }
   }
 
   disablePanel = (name) => {
     this.selectorDisabled = true;
     this.feedback = this.feedback = 'Panning to ' + name + '.';
-  }
+  };
 
   enablePanel = () => {
     this.selectorDisabled = false;
