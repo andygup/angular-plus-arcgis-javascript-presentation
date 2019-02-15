@@ -47,12 +47,13 @@ export class EsriMapComponent implements OnInit {
     // use esri-loader to load JSAPI modules
     return loadModules([
       'esri/Map',
-      'esri/views/MapView',
+      'esri/views/SceneView',
       'esri/Graphic'
     ])
       .then(([Map, MapView, Graphic]) => {
         const map: __esri.Map = new Map({
-          basemap: 'hybrid'
+          basemap: 'hybrid',
+          ground: "world-elevation"
         });
 
         this.mapView = new MapView({

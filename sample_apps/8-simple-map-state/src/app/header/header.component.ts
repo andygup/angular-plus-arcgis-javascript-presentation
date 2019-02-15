@@ -19,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  header = 'Esri Dev Summit 2019: Implementing ArcGIS API for JavaScript and Angular CLI';
+  header = 'Implementing ArcGIS API for JavaScript and Angular CLI';
   header_tag = 'Managing Map State with Services: click map to set point graphics persisted in map state';
 
   constructor() { }
