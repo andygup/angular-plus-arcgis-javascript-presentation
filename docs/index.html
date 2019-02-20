@@ -273,7 +273,7 @@
 						npm install --save @types/arcgis-js-api
 						```
 
-						and also add to `tsconfig.app.json`.
+						and also add to `tsconfig.app.json` (LEGACY).
 
 						```json
 						"types": ["arcgis-js-api"]
@@ -334,17 +334,17 @@
 
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
-					![asynchronous operations](img/async_operations.png)
+					## Asynchronous Operations
+
+					- Three ways to manage out of process, out of sequence operations:
+						- Promises
+						- Custom Events
+						- RxJS Observables
 				</textarea>
 			</section>
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
 					![asynchronous patterns](img/async_pattern_options.png)
-				</textarea>
-			</section>
-			<section data-markdown data-background="img/bg-basic.png">
-				<textarea data-template>
-					![app screenshot](img/app_screenshot.png)
 				</textarea>
 			</section>
 			<section data-markdown data-background="img/bg-basic.png">
@@ -364,17 +364,15 @@
 			</section>
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
-					![app screenshot](img/state_management.png)
+					## 8-simple-map-state
+
+					- Need to maintain state as we change routes
+						- Can use a service to maintain the state
 				</textarea>
 			</section>
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
 					![app screenshot](img/app_screenshot_2.png)
-				</textarea>
-			</section>
-			<section data-markdown data-background="img/bg-basic.png">
-				<textarea data-template>
-					![app screenshot](img/state_management_schema.png)
 				</textarea>
 			</section>
 			<section data-markdown data-background="img/bg-basic.png">
@@ -479,7 +477,7 @@
 		// - https://github.com/hakimel/reveal.js#configuration
 		// - https://github.com/hakimel/reveal.js#dependencies
 		Reveal.initialize({
-			// This height and width are here for the left-aligned title slide. 
+			// This height and width are here for the left-aligned title slide.
 			// If you do not want that, you can remove these two settings and
 			// the presentation will be closer to OOTB-Reveal.js:
 			width: '100%',
