@@ -39,14 +39,14 @@ export class EsriMapComponent implements OnInit {
           basemap: 'streets'
         };
 
-        const map: esri.Map = new EsriMap(mapProperties);
+        const m: esri.Map = new EsriMap(mapProperties);
 
         // STEP 2: construct a typed MapView instance with typed constructor properties
         const mapViewProperties: esri.MapViewProperties = {
           container: this.mapViewEl.nativeElement,
           center: [0.1278, 51.5074],
           zoom: 10,
-          map: map
+          map: m
         };
 
         const mapView: esri.MapView = new EsriMapView(mapViewProperties);
