@@ -88,9 +88,9 @@
 
 					- Walk through sample Angular apps
 
-					- Learn how to use Esri JSAPI _inside of_ Angular apps
+					- Learn how to use ArcGIS API for JavaScript _inside of_ Angular apps
 					
-					- Consume Esri JSAPI from CDN
+					- Consume ArcGIS API for JavaScript from CDN
 				</textarea>
 			</section>
 
@@ -108,7 +108,7 @@
 						
 						- ./sample_apps/2-more-app-scaffolding
 
-						- ./sample_apps/3-the-esri-loader
+						- ./sample_apps/3-esri-loader
 						
 						- ...and more...
 				</textarea>
@@ -173,14 +173,13 @@
 
 			<section data-markdown data-background="img/bg-basic.png" data-state="blockquote-smaller">
 				<textarea data-template>
-					## 3-the-esri-loader
+					## 3-esri-loader
 			
-					- The glue that holds everything together is ["Esri/esri-loader"](https://github.com/Esri/esri-loader).
+					- The glue that holds everything together is [github.com/Esri/esri-loader](https://github.com/Esri/esri-loader).
 
 						&gt; "A tiny library to help load ArcGIS API for JavaScript modules in non-Dojo applications"
 
 						```typescript
-						/* ANGULAR GALAXY AND COLD VACUUM OF SPACE OUT HERE! */
 
 						import { loadModules } from 'esri-loader';
 
@@ -189,27 +188,25 @@
 						]).then(([
 							EsriMap, EsriMapView, Graphic
 						]) =&gt; {
-							/* ESRI PLANET WITH ATMOSPHERE INSIDE HERE! */
 
-							// for example you could recreate any demo from https://js.arcgis.com
+							// Any ArcGIS JavaScript code here
 						});
 
-						/* ANGULAR GALAXY AND COLD VACUUM OF SPACE OUT HERE! */
 						```
 				</textarea>
 			</section>
 
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
-					## 3-the-esri-loader
+					## 3-esri-loader
 			
-					- This brings Esri **WITHIN** Angular
+					- This brings ArcGIS API for JavaScript **WITHIN** Angular
 
 					- Which ultimately means Dojo **INSIDE OF** Angular
 
 					- How?
 
-						- `loadModulues` method that you `import` as needed
+						- `loadModules` method that you `import` as needed
 
 							```typescript
 							import { loadModules } from 'esri-loader';
@@ -221,11 +218,11 @@
 
 			<section data-markdown data-background="img/bg-basic.png" data-state="blockquote-smaller">
 				<textarea data-template>
-					## 3-the-esri-loader
+					## 3-esri-loader
 
 					- Why?
 
-						- Provides a reliable way to load Esri modules using Dojo's AMD loader
+						- Provides a reliable way to load ArcGIS modules using Dojo's AMD loader
 
 					- You benefit from getting to:
 
@@ -233,7 +230,7 @@
 
 						- improve initial app load performance
 
-						- control which Esri modules you want, à la carte
+						- control which ArcGIS modules you want, à la carte
 				</textarea>
 			</section>
 
@@ -390,59 +387,23 @@
 				<textarea data-template>
 					## 10-ionic
 			
+					- [https://github.com/andygup/ionic2-esri-map](https://github.com/andygup/ionic2-esri-map)
 					- Using the ArcGIS API for JavaScript with Ionic.
-					- Ionic is built on Angular
+					- Ionic works with 3rd party frameworks including Angular and React
 					- Ionic life-cycle: async/await
 				</textarea>
 			</section>
 
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
-					## Where to get help: Esri JSAPI
+					## Resources
 					
 					- https://js.arcgis.com
-
-					- [GeoNet: ArcGIS API for JavaScript Community](https://community.esri.com/community/developers/web-developers/arcgis-api-for-javascript)
-
-					- [GIS Stack Exchange](https://gis.stackexchange.com/)
-				</textarea>
-			</section>
-
-			<section data-markdown data-background="img/bg-basic.png">
-				<textarea data-template>
-					## Where to get help: Angular
-
-					- Angular docs at https://angular.io/
-					
-					- Stack Overflow
-					
-					- Your own favorite places for web dev help
-				</textarea>
-			</section>
-
-			<section data-markdown data-background="img/bg-basic.png">
-				<textarea data-template>
-					## Where to get help: esri-loader
-
-					- The [README](https://github.com/Esri/esri-loader/blob/master/README.md) is phenomenal and up-to-date
-					- New Github issue? 
-						- must include a live demo that shows the specific problem with esri-loader
-
-					![issue template screenshot](img/issue-template.png)
-				</textarea>
-			</section>
-
-			<section data-markdown data-background="img/bg-basic.png">
-				<textarea data-template>
-					## Additional resources
-
+					- https://github.com/esri/esri-loader
 					- https://github.com/andygup/angular-plus-arcgis-javascript-presentation
-
 					- https://github.com/Esri/angular-cli-esri-map
-
-					- ["Esri/esri-loader"](https://github.com/Esri/esri-loader) is your new friend
-					
-					- And more Angular info at ["Esri/jsapi-resources"](https://github.com/Esri/jsapi-resources/tree/master/frameworks/angular)
+					- [GeoNet: ArcGIS API for JavaScript Community](https://community.esri.com/community/developers/web-developers/arcgis-api-for-javascript)
+					- [GIS Stack Exchange](https://gis.stackexchange.com/)
 				</textarea>
 			</section>
 
