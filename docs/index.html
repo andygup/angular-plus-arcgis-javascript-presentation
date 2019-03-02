@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Angular and the ArcGIS API for JavaScript, DS2018</title>
+	<title>Angular and the ArcGIS API for JavaScript, DS2019</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/esri-dev-summit-2018.css">
@@ -56,7 +56,7 @@
 
 			<section data-markdown data-background="img/bg-basic.png" data-state="intro-css">
 				<textarea data-template>
-					## [Angular](https://angular.io) + [Esri JSAPI](https://js.arcgis.com)
+					## [Angular](https://angular.io) + [ArcGIS API for JavaScript](https://js.arcgis.com)
 
 					 [![angular logo](img/angular.png)](https://angular.io) [![angular logo](img/angular.png)](https://angular.io) [![angular logo](img/angular.png)](https://angular.io)
 
@@ -177,7 +177,7 @@
 			
 					- The glue that holds everything together is [github.com/Esri/esri-loader](https://github.com/Esri/esri-loader).
 
-						&gt; "A tiny library to help load ArcGIS API for JavaScript modules in non-Dojo applications"
+						&gt; "A tiny library to help load ArcGIS API for JavaScript modules in 3rd party JavaScript frameworks"
 
 						```typescript
 
@@ -200,9 +200,7 @@
 				<textarea data-template>
 					## 3-esri-loader
 			
-					- This brings ArcGIS API for JavaScript **WITHIN** Angular
-
-					- Which ultimately means Dojo **INSIDE OF** Angular
+					- This brings ArcGIS API for JavaScript modules **WITHIN** Angular
 
 					- How?
 
@@ -212,7 +210,7 @@
 							import { loadModules } from 'esri-loader';
 							```
 
-						- `loadModulues` method dynamically injects an Esri `&lt;script&gt;` tag onto the page
+						- `loadModulues` method dynamically injects a `&lt;script&gt;` tag onto the page
 				</textarea>
 			</section>
 
@@ -388,9 +386,12 @@
 					## 10-ionic
 			
 					- [https://github.com/andygup/ionic2-esri-map](https://github.com/andygup/ionic2-esri-map)
+
 					- Using the ArcGIS API for JavaScript with Ionic.
+
 					- Ionic works with 3rd party frameworks including Angular and React
-					- Ionic life-cycle: async/await
+
+					- Ionic life-cycle: ngOnit() => platform.ready() => async/await loadModules
 				</textarea>
 			</section>
 
