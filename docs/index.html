@@ -70,13 +70,13 @@
 
 			<section data-markdown data-background="img/bg-basic.png" data-state="intro-css">
 				<textarea data-template>
-					## Angular?	Yes. Angular.
+					## Angular?	Yes, Angular 5+.
 
 					![angular logo](img/angular.png)
 
 					---
 
-					_Not "AngularJS", "Angular v1", "Angular.js", etc._
+					## _Not "AngularJS", "Angular v1", "Angular.js", etc._
 
 					https://github.com/Esri/angular-esri-map
 
@@ -161,36 +161,15 @@
 				</textarea>
 			</section>
 
-			<section data-markdown data-background="img/bg-basic.png" data-state="blockquote-smaller">
-				<textarea data-template>
-					## 3-esri-loader
-			
-					- The glue that holds everything together is [github.com/Esri/esri-loader](https://github.com/Esri/esri-loader).
-
-						&gt; "A tiny library to help load ArcGIS API for JavaScript modules in 3rd party JavaScript frameworks"
-
-						```typescript
-
-						import { loadModules } from 'esri-loader';
-
-						loadModules([
-							'esri/Map', 'esri/views/MapView', 'esri/Graphic'
-						]).then(([
-							EsriMap, EsriMapView, Graphic
-						]) =&gt; {
-
-							// Any ArcGIS JavaScript code here
-						});
-
-						```
-				</textarea>
-			</section>
-
 			<section data-markdown data-background="img/bg-basic.png">
 				<textarea data-template>
 					## 3-esri-loader
-			
-					- This brings ArcGIS API for JavaScript modules **WITHIN** Angular
+
+					&gt; "A tiny library to help load ArcGIS API for JavaScript modules in 3rd party JavaScript frameworks"
+
+					- Brings ArcGIS API for JavaScript modules **WITHIN** Angular
+
+					- [github.com/Esri/esri-loader](https://github.com/Esri/esri-loader)
 
 					- How?
 
@@ -208,9 +187,47 @@
 				<textarea data-template>
 					## 3-esri-loader
 
+					```
+						import { loadModules } from 'esri-loader';
+
+						// Use Promise-based pattern
+						loadModules([
+							'esri/Map', 'esri/views/MapView', 'esri/Graphic'
+						]).then(([
+							EsriMap, EsriMapView, Graphic
+						]) =&gt; {
+
+							// Any ArcGIS JavaScript code here
+						});
+
+					```
+
+
+
+					```typescript
+						// Or, use async/await pattern
+						async initializeMap() {
+							const [Map, MapView, Graphic]:any = await loadModules([
+								'esri/Map',
+								'esri/views/MapView',
+								'esri/Graphic
+							])
+							.catch(err => {
+								console.error('ArcGIS: ', err);
+							});
+						}
+					```
+
+				</textarea>
+			</section>
+
+			<section data-markdown data-background="img/bg-basic.png" data-state="blockquote-smaller">
+				<textarea data-template>
+					## 3-esri-loader
+
 					- Why?
 
-						- Provides a reliable way to load ArcGIS modules using Dojo's AMD loader
+						- Provides a reliable way to load ArcGIS modules using our AMD loader
 
 					- You benefit from getting to:
 
