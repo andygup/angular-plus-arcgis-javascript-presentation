@@ -1,66 +1,82 @@
-# Managing Asynchronous Operations using Promises
+# Types for ArcGIS API
 
-This sample app demonstrates a pattern for managing asynchronous operations using ES6 Promises. 
+This sample provides a boilerplate for standing up an Angular app that implements the ArcGIS API for JavaScript.  We leverage the Angular CLI and the [esri-loader](https://github.com/Esri/esri-loader).
+
 ## Overview
-This app has two key components, a dashboard containing a location selector and a map.  They share a simple interaction.  When the user selects a location, an event is triggered that instructs the map to pan, and the selector is disabled while the map extent is repositioned. Once repositioned, the map component notifies the dashboard, so it can enable the selector. 
 
-In this case, **the map component is a child of the dashboard component**.  This relationship allows the dashboard component class to hold a reference to the map component class.  With that reference, the dashboard component class can directly invoke a method of the map component class.  The map component class then returns an ES6 Promise to the dashboard, providing a mechanism for our asynchronous operation. 
+- [TypeScript](https://www.typescriptlang.org/index.html) is used throughout Angular's documentation
 
-## The Dashboard Component
-#### Getting a Reference to a Child Component
-Getting a reference to a child-component class is done with the ```ViewChild``` module that’s part of the ```@angular/core package```.  So first, import the ```ViewChild``` module along with your ```EsriMapComponent``` into the parent ```DashboardComponent``` class.
-```
- import { Component, ViewChild, OnInit } from '@angular/core';
- import { EsriMapComponent } from '../esri-map/esri-map.component';
-```
-With the ```ViewChild``` and ```EsriMapComponent``` modules loaded into the dashboard component class, we can declare a variable, ```map```, using the ```@ViewChild``` decorator.  This variable will provide a reference to the esri-map component class.  
+- It is "a typed superset of JavaScript that compiles to plain JavaScript"
 
-```
-export class DashboardComponent implements OnInit {
-   @ViewChild(EsriMapComponent) map: EsriMapComponent; 
-	...
-}
-```
-#### Communicating with a Child Component
-Using the reference to the esri-map component, the event handler (```selectedWonder()```) is wired up to the location selector. When the user selects a location, the event handler disables the dashboard panel, calls the map’s ```panMap()``` method which returns an ES6 Promise.  Once the promise is resolved, the dashboard panel is enabled.
+- It allows for compile-time type checking for JavaScript
 
-```
-selectedWonder = (ev) => {
+  ```typescript
+  // without types
+  let fullName = 'Bob Bobbington';
+  let age = 37;
 
-  // disable the panel
-  this.disablePanel(this.sevenWonders[ev.target.value].name);
+  // with types
+  let fullName: string = 'Bob Bobbington';
+  let age: number = 37;
+  ```
 
-  // call the panMap method of the child map component
-  this.map.panMap(this.sevenWonders[ev.target.value].coordinates)
-    .then(() => {
-      this.enablePanel();
-    })
-		
-}
-```
-## The Esri-Map Component
-The esri-map component class shown here, shows the exposed method, ```panMap()```, that returns a promise to the caller.  To make the delay more pronounced, a ```setTimeOut()``` is used to delay the resolution of the promise.
+- https://www.typescriptlang.org/docs/handbook/basic-types.html
 
-```
-  panMap = (coordinates) => {
-    return new Promise((resolve, reject) => {
-      this.mapView.goTo(coordinates)
-      .then(() => {
-        this.mapView.zoom = 18;
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      }).catch((err) => {
-        reject(err);
-      });
-    });
-```
-### TL;DR*
+- [Esri provides type definitions](https://github.com/Esri/jsapi-resources/) for the ArcGIS API for JavaScript
 
-1. Import the ```ViewChild``` and child class modules into the parent component class.
-2. Create an instance variable of the child class.
-3. From the parent component class, invoke a method in the child component class that will return a promise.
-4. When ready, resolve the promise in the child class.
-5. When the parent class’s promise is resolved, continue operation 
+- For Esri v4.x, install them with
 
-*"too long; didn't read"
+  ```bash
+  npm install --save @types/arcgis-js-apia
+  ```
+
+  and also add to `tsconfig.app.json`.
+
+  ```json
+  "types": ["arcgis-js-api"]
+  ```
+
+- Types are available through global "`__esri`" namespace for Esri v4.x
+
+  - We recommend renaming to "`esri`" with
+
+  ```typescript
+  import esri = __esri;
+  ```
+
+- More info is available at https://github.com/Esri/jsapi-resources/
+
+  ```typescript
+  // without
+  const map = new EsriMap({ /* zoom, center, etc. */ });
+
+  // with
+  const mapProperties: esri.MapProperties = {
+    basemap: 'streets'
+  };
+  const map: esri.Map = new EsriMap(mapProperties);
+  ```
+
+  ```typescript
+  // without
+  const arrayOfGraphics = [];
+  const myGraphic = new Graphic({ /* geometry, symbol, etc. */ });
+  arrayOfGraphics.push(myGraphic)
+
+  // with
+  const arrayOfGraphics: esri.Graphic[] = [];
+  const myGraphic: esri.Graphic = new Graphic({ /* geometry, symbol, etc. */ });
+  arrayOfGraphics.push(myGraphic);
+  ```
+
+Example of IntelliSense in VS Code
+
+![autocomplete screenshot](autocomplete_screenshot.png)
+
+Thanks, type definitions!
+
+## Background info on this sample code
+
+This sample app was created following the instructions here: https://github.com/Esri/angular-cli-esri-map.
+
+Please spend some time getting comfortable with those instructions.
