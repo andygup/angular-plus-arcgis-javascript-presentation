@@ -27,7 +27,7 @@ This sample provides a boilerplate for standing up an Angular app that implement
 - For Esri v4.x, install them with
 
   ```bash
-  npm install --save @types/arcgis-js-apia
+  npm install --save @types/arcgis-js-api
   ```
 
   and also add to `tsconfig.app.json`.
